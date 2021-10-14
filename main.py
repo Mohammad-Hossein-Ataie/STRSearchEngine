@@ -43,3 +43,11 @@ def Program(srt):
                     row.append(str(srt).replace(
                         'D:\\03-My movies\\02-EnSubtitle\ ', ''))
                     result.writerow(row)
+
+
+p = Path('Your directory contains SRT files')
+srt_files = [csvfile for csvfile in p.iterdir() if csvfile.is_file()
+             and csvfile.suffix == '.srt']
+for filename in srt_files:
+    Program(filename)
+result.close()
